@@ -1,0 +1,214 @@
+:root {
+  /* Colors */
+  --bg-paper: #FAF8F4;
+  --bg-paper-pure: #FFFFFF;
+  --bg-paper-card: #FAF8F4;
+  --bg-paper-muted: #F3EFE6;
+  --bg-sticky-yellow: #FEF9C3;
+  --bg-sticky-blue: #E0F2FE;
+  
+  --ink-primary: #161615;
+  --ink-secondary: #47453F;
+  --ink-muted: #78756C;
+  --ink-faint: #B8B4AA;
+  --pencil-line: #DDD8CE;
+  --pencil-line-dark: #2A2927;
+  
+  --marker-yellow: #FFF275;
+  --marker-yellow-soft: rgba(255, 242, 117, 0.5);
+  --marker-blue: #BAE6FD;
+  --marker-blue-soft: rgba(186, 230, 253, 0.5);
+  --marker-peach: #FED7AA;
+  
+  --accent-crimson: #D9381E;
+  --accent-navy: #1E3A8A;
+
+  /* Typography: Elegant tall editorial display serif + readable tall sans-serif */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  /* Sketch & Organic Borders */
+  --sketch-border-1: 255px 15px 225px 15px/15px 225px 15px 255px;
+  --sketch-border-2: 15px 225px 15px 255px/255px 15px 225px 15px;
+  --sketch-shadow: 3px 4px 0px rgba(22, 22, 21, 0.95);
+  --sketch-shadow-hover: 5px 7px 0px rgba(22, 22, 21, 0.95);
+
+  color-scheme: light;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink-primary);
+  background-color: var(--bg-paper);
+  /* Subtle tactile strategist notebook paper grid */
+  background-image: 
+    radial-gradient(circle, rgba(22, 22, 21, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  line-height: 1.75; /* Generous vertical breathing room */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography Base with Enhanced Vertical Proportions */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ink-primary);
+  font-weight: 700;
+  line-height: 1.25; /* Elevated from tight 1.05/1.15 to prevent height compression */
+  letter-spacing: -0.01em; /* Relaxed from -0.04em so letterforms have full vertical optical height */
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.8vw, 4.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  font-weight: 700;
+}
+
+p {
+  color: var(--ink-secondary);
+  font-size: 1.05rem;
+  line-height: 1.75; /* Prevents paragraph lines from crowding */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Notebook Sticky Tape Effect */
+.tape-strip {
+  position: absolute;
+  height: 18px;
+  background: rgba(254, 240, 138, 0.45);
+  backdrop-filter: blur(1px);
+  border-left: 2px dashed rgba(22, 22, 21, 0.2);
+  border-right: 2px dashed rgba(22, 22, 21, 0.2);
+  transform: rotate(-2deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.tape-strip-clear {
+  position: absolute;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(22, 22, 21, 0.08);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Handwritten accent utilities with vertical headroom */
+.font-hand {
+  font-family: var(--font-hand);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+/* Hand-Drawn Sketch Border Utility */
+.sketch-box {
+  background: var(--bg-paper-pure);
+  border: 2px solid var(--ink-primary);
+  border-radius: var(--sketch-border-1);
+  box-shadow: var(--sketch-shadow);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+}
+
+.sketch-box:hover {
+  transform: translate(-2px, -3px);
+  box-shadow: var(--sketch-shadow-hover);
+}
+
+/* Layout Utilities */
+.site-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+  width: 100%;
+}
+
+.section-padding {
+  padding: 6.5rem 0;
+  scroll-margin-top: 4.5rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4.5rem 0;
+  }
+}
+
+/* Section Header Badge */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-crimson);
+  letter-spacing: 0.03em;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* Smooth Fade In */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-entry {
+  animation: fadeInSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
